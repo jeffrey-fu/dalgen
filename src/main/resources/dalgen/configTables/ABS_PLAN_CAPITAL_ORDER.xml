@@ -1,0 +1,35 @@
+<!DOCTYPE table SYSTEM "../config/table-config-1.0.dtd">
+<table sqlname="abs_plan_capital_order" physicalName="abs_plan_capital_order" remark="计划资金交易订单">
+ 
+    <operation name="queryForAstMatchWithSlice" multiplicity="many" paramtype="customParamClass" paramClass="com.test.Abc" remark="资产筛选分页">
+        select
+                /*+
+                index(la UK_ABS_LOAN_1)
+                index(ala ABS_LOAN_AST_IDX)
+                index(li IDX_LOAN_INSTAL_AST_NO)
+                */
+            sf.ID as DT_ID
+            ,sf.AST_NO
+            ,sf.MANAGER_ORG_CODE
+            ,ala.TERM_NO MAX_TERM_NO
+            ,li.START_DATE
+            ,li.END_DATE
+            ,sf.CONTEXT as CONTEXT
+            ,sf.SLICE
+            ,la.RISK_CL
+            ,la.lender_org_code
+            ,la.STATUS
+            ,la.PROD_NO
+            ,ala.prin_bal PRIN_BAL
+            ,ala.TERM_NO MIN_TERM_NO
+            ,la.term_cnt as term_cnt
+            ,la.max_ovd_days
+        from ABS_AST_POOL sf
+        LEFT JOIN abs_loan la ON sf.ast_no = la.ast_no
+        LEFT JOIN ABS_LOAN_AST ala ON sf.ast_no = ala.ast_no
+        LEFT JOIN ABS_LOAN_INSTAL li ON ala.ast_no=li.ast_no and ala.TERM_NO=li.TERM_NO
+        where
+            AND ala.AST_STATUS      = 'nor'
+        order by li.END_DATE desc,li.AST_NO,li.TERM_NO
+    </operation>
+</table>
