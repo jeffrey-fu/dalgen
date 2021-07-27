@@ -23,19 +23,18 @@
     <!-- database name 自定义-->
     <!-- ========================================================== -->
     <!-- -->
-    <!--<database name="dalgen" class="org.gjt.mm.mysql.Driver" type="mysql">
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/dalgen"/>
+    <database name="test" class="com.mysql.cj.jdbc.Driver" type="mysql">
+        <property name="url" value="jdbc:mysql://localhost:3306/test?useSSL=false"/>
         <property name="userid" value="root"/>
-        <property name="password" value="123456"/>
-        <property name="schema" value="dalgen"/>
-    </database> -->
-    <database name="abssqr" class="org.gjt.mm.mysql.Driver" type="mysql">
-        <property name="url" value="jdbc:mysql://dev.db.**.cn:80/coll"/>
-        <property name="userid" value="Abssqr_coll"/>
-        <property name="password" value="Abssq"/>
-        <property name="schema" value="coll"/>
+        <property name="password" value=""/>
+        <property name="schema" value="test"/>
     </database>
-
+<!--    <database name="oracle" class="oracle.jdbc.driver.OracleDriver" type="oracle">-->
+<!--        <property name="url" value="jdbc:oracle:thin:@47.97.255.72:1521:dbsrv2"/>-->
+<!--        <property name="userid" value="abssqr"/>-->
+<!--        <property name="password" value="JUEDUI2tech"/>-->
+<!--        <property name="schema" value="abssqr"/>-->
+<!--    </database>-->
     <!-- ========project.name pom.xml中的值========================= -->
     <!--<package value="com.bgdf.${project.name}.common.dal.${database.name}.auto"/>-->
     <!--database="fbi" 此参数可选，多数据源时如果不使用此参数则为通用-->

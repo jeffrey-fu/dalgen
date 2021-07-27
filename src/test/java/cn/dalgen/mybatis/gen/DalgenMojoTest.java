@@ -67,7 +67,7 @@ public class DalgenMojoTest extends TestCase{
 
         try {
             ConfigUtil.readConfig(config);
-            ConfigUtil.setCmd("ABS_PLAN_CAPITAL_ORDER");
+            ConfigUtil.setCmd("NEWS");
         } catch (IOException e) {
             LOG.error(e);
         }

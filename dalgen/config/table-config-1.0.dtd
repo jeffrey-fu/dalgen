@@ -24,6 +24,8 @@
         javatype      对应转为那种javaType
         testVal       针对自动生成单元测试默认值
         relatedColumn 针对 com.alipay.fc.common.lang.money.MultiCurrencyMoney 扩展
+        ordinalMaxPosition
+        ordinalEffectiveDay 与上一字段组合使用，不同迭代新增字段互不影响
         -->
         <!ELEMENT column EMPTY>
         <!ATTLIST column
@@ -122,7 +124,7 @@
         paramtype     object 会自动翻译为 生成的对象
                       objectList 参考object
                       primitive 根据字段类型生成
-                      autoParamClass 根据字段类型生成
+                      customParamClass 根据字段类型生成
         multiplicity  one 返回对象,
                       many 返回list
                       paging 返回分页
@@ -133,7 +135,7 @@
         useGeneratedKeys 自增主键的库可以使用 如mysql  。 oracle无自增主键使用无效
         keyProperty
         paging        分页类-生成后即作为参数传递类又作为返回结果类
-        paramClass    生成后参数传递类
+        paramClass    客户指定生成后参数传递类
         resulttype    指定返回类型
         resultmap     指定使用哪个resultmap 不写则使用自动生成的resultMap
         timeout       设置超时时间
