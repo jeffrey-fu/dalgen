@@ -24,7 +24,6 @@ import fmpp.tdd.EvalException;
 import fmpp.tdd.Interpreter;
 import fmpp.util.MiscUtil;
 import org.apache.commons.lang.StringUtils;
-import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;

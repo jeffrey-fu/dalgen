@@ -18,16 +18,16 @@ import cn.dalgen.mybatis.gen.utils.ConfigUtil;
  * Created by bangis.wangdf on 15/12/5.
  * Desc
  */
-public class DalgenMojoTest extends TestCase{
+public class DalgenMojoTest extends TestCase {
     /**
      * The constant LOG.
      */
-    private static final Log LOG               = new SystemStreamLog();
+    private static final Log LOG = new SystemStreamLog();
 
     /**
      * The constant BASE_PATH.
      */
-    public static String BASE_PATH         = CmdUtil.class
+    public static String BASE_PATH = CmdUtil.class
         .getResource("")
         .getPath()
         .replace(
@@ -47,24 +47,23 @@ public class DalgenMojoTest extends TestCase{
     /**
      * The constant outputDirectory.
      */
-    public static File outputDirectory   = new File(BASE_PATH + "out/");
+    public static File outputDirectory = new File(BASE_PATH + "out/");
 
     /**
      * The constant templateDirectory.
      */
-    public static File         templateDirectory = new File(BASE_PATH + "dalgen/templates/");
+    public static File templateDirectory = new File(BASE_PATH + "dalgen/templates/");
     /**
      * The constant templateDirectory.
      */
-    public static File         templateExtDirectory = new File(BASE_PATH + "dalgen/ext/");
+    public static File templateExtDirectory = new File(BASE_PATH + "dalgen/ext/");
 
     /**
      * The constant config.
      */
-    public static File         config            = new File(BASE_PATH + "dalgen/config/config.xml");
+    public static File config = new File(BASE_PATH + "dalgen/config/config.xml");
 
     static {
-
         try {
             ConfigUtil.readConfig(config);
             ConfigUtil.setCmd("NEWS");
@@ -75,7 +74,7 @@ public class DalgenMojoTest extends TestCase{
     public void testExecute() throws Exception {
         MavenProject project = new MavenProject();
         project.setName("");
-        DalgenMojo dalgenMojo = new DalgenMojo(outputDirectory,templateDirectory,templateExtDirectory,config,project,true);
+        DalgenMojo dalgenMojo = new DalgenMojo(outputDirectory, templateDirectory, templateExtDirectory, config, project, true);
         CmdUtil cmdUtil = Mockito.mock(CmdUtil.class);
         Mockito.when(cmdUtil.consoleInput()).thenReturn(ConfigUtil.getCmd());
         dalgenMojo.setCmdUtil(cmdUtil);
