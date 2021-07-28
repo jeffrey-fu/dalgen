@@ -113,17 +113,12 @@ public class DalgenLoader extends AbstractDalgenLoader {
         //存在的模板文件内容
         gen.setTmpCfTables(Lists.newArrayList(cfTableMap.values()));
 
-        //获取到所有表相关信息
-        for (String tbName : cfTableMap.keySet()) {
-            Table table = tableRepository.gainTable(connection, tbName, cfTableMap.get(tbName));
-            gen.addTmpTable(table);
-        }
-
         List<String> needGenTableNames = preNeedGenTableNames(cmd, cfTableMap);
 
         //获取需要重新生成的表(为重新生成Mapper.xml,DO,Mapper.java 准备)
         Map<String, Table> tableMap = Maps.newHashMap();
 
+        //获取到表相关信息(*为所有表)
         for (String tbName : needGenTableNames) {
             tableMap.put(StringUtils.upperCase(tbName),
                 tableRepository.gainTable(connection, tbName, cfTableMap.get(tbName)));

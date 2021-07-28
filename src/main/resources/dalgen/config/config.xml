@@ -96,7 +96,7 @@
         <extParam name="DoMapperName" value="DO"/> <== 废弃 by Vr80s 2019-05-23
         -->
         <!--默认DAO中方法参数排序，设定为false时与xml模板中顺序一致-->
-        <extParam name="MethodParamSort" value="true"/>
+        <extParam name="MethodParamSort" value="false"/>
 
         <!-- 新增参数 by Vr80s 2019-05-23 -->
         <!-- 实体类命名规则 默认值："[EntityName]DO" -->

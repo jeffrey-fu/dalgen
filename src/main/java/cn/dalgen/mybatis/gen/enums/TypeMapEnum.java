@@ -31,9 +31,13 @@ public enum TypeMapEnum {
      */
     LONGVARCHAR("LONGVARCHAR", "String"),
     /**
-     * Longvarchar type map enum.
+     * Text type map enum.
      */
     TEXT("VARCHAR", "String"),
+    /**
+     * Text type map enum.
+     */
+    LONGTEXT("VARCHAR", "String"),
     /**
      * Numeric type map enum.
      */

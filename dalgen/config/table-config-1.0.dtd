@@ -137,6 +137,7 @@
         paging        分页类-生成后即作为参数传递类又作为返回结果类
         paramClass    客户指定生成后参数传递类
         resulttype    指定返回类型
+        resultSetType FORWARD_ONLY | SCROLL_INSENSITIVE | SCROLL_SENSITIVE | DEFAULT
         resultmap     指定使用哪个resultmap 不写则使用自动生成的resultMap
         timeout       设置超时时间
         kvmap         dao自动将结果转为Map mapk 指定字段作为 key,mapv 作为value,mapv为null时返回对象作为value
@@ -145,11 +146,12 @@
                       list  返回Map<?,List<?>> 其中 ?分表对应 mapK，mapV类型
                       set   返回Map<?,Set<?>>  其中 ?分表对应 mapK，mapV类型
         autoGen       insert insertBatch update 时生效
+        listLimit     参数list最大限制，默认200
         -->
         <!ELEMENT operation (#PCDATA | extraparams | selectKey | include | trim | where | set | foreach | choose | if | bind | optimizePaging)*>
         <!ATTLIST operation
                 name CDATA         #REQUIRED
-                paramtype (object|primitive|objectList) #IMPLIED
+                paramtype (object|primitive|objectList|customParamClass) #IMPLIED
                 multiplicity (one|many|paging) #IMPLIED
                 paging CDATA       #IMPLIED
                 useGeneratedKeys  (true|false) #IMPLIED
@@ -159,8 +161,11 @@
                 remark CDATA       #IMPLIED
                 paramClass CDATA   #IMPLIED
                 resulttype CDATA   #IMPLIED
+                resultSetType (FORWARD_ONLY | DEFAULT) #IMPLIED
+                fetchSize CDATA #IMPLIED
                 resultmap CDATA    #IMPLIED
                 timeout CDATA      #IMPLIED
+                listLimit CDATA      #IMPLIED
                 kvmap (false|true|list|set) #IMPLIED
                 mapK CDATA         #IMPLIED
                 mapV CDATA         #IMPLIED
