@@ -33,11 +33,11 @@ public enum TypeMapEnum {
     /**
      * Text type map enum.
      */
-    TEXT("VARCHAR", "String"),
+    TEXT("LONGVARCHAR", "String"),
     /**
      * Text type map enum.
      */
-    LONGTEXT("VARCHAR", "String"),
+    LONGTEXT("LONGVARCHAR", "String"),
     /**
      * Numeric type map enum.
      */
