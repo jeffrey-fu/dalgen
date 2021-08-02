@@ -145,11 +145,6 @@ public class DalgenMojo extends AbstractBaseMojo {
             ConfigUtil.readConfig(config);
             String _cmd = cmdUtil.consoleInput();
 
-            if (StringUtils.equalsIgnoreCase("Q", _cmd)) {
-                getLog().info("dalgen success");
-                return;
-            }
-
             if (StringUtils.equalsIgnoreCase("q", _cmd)) {
                 getLog().info("dalgen 放弃生成");
                 return;
